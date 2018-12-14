@@ -8,6 +8,7 @@ import { AuthService } from "angularx-social-login";
 
 import {MatBottomSheet} from '@angular/material';
 import { NotificationlistComponent } from './notificationlist/notificationlist.component';
+import { MessagingService } from "./shared/messaging.service";
 
 /** @title Responsive sidenav */
 @Component({
@@ -23,11 +24,12 @@ export class AppComponent implements OnInit,OnDestroy {
   mobileQuery: MediaQueryList;
   user:SocialUser;
   isLoggedIn:boolean;
+  message;
 
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private authService: AuthService,private data: DataService,
-    private route:ActivatedRoute,private router:Router, private bottomSheet: MatBottomSheet ) {
+    private route:ActivatedRoute,private router:Router, private bottomSheet: MatBottomSheet , private messagingService: MessagingService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -56,7 +58,13 @@ export class AppComponent implements OnInit,OnDestroy {
     }
     this.data.currentMessage.subscribe(user => {
       this.user = user;
-    });
+      if(user){
+        const userId = this.user.provider + '/' + this.user.id;
+        this.messagingService.requestPermission(userId);
+        this.messagingService.receiveMessage();
+        this.message = this.messagingService.currentMessage;
+        }
+    });    
   }
 
   showNotifications(){
