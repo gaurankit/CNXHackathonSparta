@@ -11,11 +11,12 @@ import { SocialUser } from "angularx-social-login";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit,OnDestroy {
- title = 'OnTrip';
+  title = 'OnTrip';
+  notifications =  ["Travel reminder", "Weather update", "Change in flight schedule"];
 
   mobileQuery: MediaQueryList;
   user:SocialUser;
-
+  
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private data: DataService) {
@@ -31,5 +32,9 @@ export class AppComponent implements OnInit,OnDestroy {
 
   ngOnInit() {
     this.data.currentMessage.subscribe(user => this.user = user)
+  }
+
+  showNotifications(){
+    alert("hi")
   }
 }
