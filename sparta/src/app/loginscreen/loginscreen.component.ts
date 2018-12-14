@@ -19,9 +19,9 @@ export class LoginscreenComponent implements OnInit {
   constructor(private authService: AuthService,private data: DataService,
     private route:ActivatedRoute,private router:Router) { }
 
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
+    signInWithGoogle(): void {
+      this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    }
 
   ngOnInit() {
     //this.data.changeMessage(this.user);

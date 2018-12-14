@@ -11,10 +11,11 @@ import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
 
-const config = new AuthServiceConfig([
+
+let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider("316130857730-agp0gtj8lch8f0l0gr6m02tcr7ehg3ml.apps.googleusercontent.com")
   }
 ]);
 
