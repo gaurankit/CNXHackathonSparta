@@ -10,6 +10,15 @@ import { HomescreenComponent } from './homescreen/homescreen.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
+import { NotificationlistComponent } from './notificationlist/notificationlist.component';
+
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { MessagingService } from './shared/messaging.service';
+import { environment } from '../environments/environment';
+import { AsyncPipe } from '../../node_modules/@angular/common';
 
 
 let config = new AuthServiceConfig([
@@ -29,19 +38,25 @@ export function provideConfig() {
     SplashscreenComponent,
     LoginscreenComponent,
     HomescreenComponent,
-    BottomnavComponent
+    BottomnavComponent,
+    NotificationlistComponent
   ],
+  entryComponents: [NotificationlistComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SocialLoginModule
+    SocialLoginModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [{
     provide: AuthServiceConfig,
     useFactory: provideConfig
-  }],
+  }, MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule  {
