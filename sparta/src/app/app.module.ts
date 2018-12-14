@@ -11,6 +11,7 @@ import { HomescreenComponent } from './homescreen/homescreen.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
+import { NotificationlistComponent } from './notificationlist/notificationlist.component';
 
 const config = new AuthServiceConfig([
   {
@@ -37,8 +38,10 @@ export function provideConfig() {
     SplashscreenComponent,
     LoginscreenComponent,
     HomescreenComponent,
-    BottomnavComponent
+    BottomnavComponent,
+    NotificationlistComponent
   ],
+  entryComponents: [NotificationlistComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
