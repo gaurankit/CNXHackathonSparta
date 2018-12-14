@@ -1,0 +1,23 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-imageFight {
+    background-image: url('https://www.latestpilotinterviews.com/wp-content/uploads/airplane.png');
+    background-size: cover;
+  }
+
+  .example-header-imageHotel {
+    background-image: url('https://static.thenounproject.com/png/13419-200.png');
+    background-size: cover;
+  }
+
+  .example-header-imageCar {
+    background-image: url('/assets/images/car.png');
+    background-size: cover;
+  }
+  .example-header-imageActivity {
+    background-image: url('https://cdn1.iconfinder.com/data/icons/traveling-2/504/12-512.png');
+    background-size: cover;
+  }
+  
