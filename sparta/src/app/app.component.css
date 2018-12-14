@@ -56,6 +56,11 @@
     width: 20rem;
     margin: 0 auto;
   }
+
+  .notificationBadge{
+    float: right;
+    margin-right: 10px;
+  }
   
   
   

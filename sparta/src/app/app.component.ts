@@ -20,6 +20,7 @@ import { MessagingService } from "./shared/messaging.service";
 
 export class AppComponent implements OnInit,OnDestroy {
   title = 'OnTrip';
+  notifications =[];
 
   mobileQuery: MediaQueryList;
   user:SocialUser;
@@ -62,7 +63,7 @@ export class AppComponent implements OnInit,OnDestroy {
         const userId = this.user.provider + '/' + this.user.id;
         this.messagingService.requestPermission(userId);
         this.messagingService.receiveMessage();
-        this.message = this.messagingService.currentMessage;
+        this.message = this.messagingService.currentMessage;        
         }
     });    
   }

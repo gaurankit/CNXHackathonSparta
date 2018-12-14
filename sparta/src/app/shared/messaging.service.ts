@@ -5,6 +5,7 @@ import { AngularFireMessaging } from '@angular/fire/messaging';
 import { mergeMapTo } from 'rxjs/operators';
 import { take } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs'
+import { debug } from 'util';
 
 @Injectable()
 export class MessagingService {
@@ -62,7 +63,7 @@ export class MessagingService {
   receiveMessage() {
     this.angularFireMessaging.messages.subscribe(
       (payload) => {
-        console.log("new message received. ", payload);
+        console.log("new message received. ", payload);        
         this.currentMessage.next(payload);
       })
   }
