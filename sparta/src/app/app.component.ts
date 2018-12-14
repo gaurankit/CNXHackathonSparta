@@ -2,6 +2,9 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component,OnInit, OnDestroy} from '@angular/core';
 import { DataService } from "./data.service";
 import { SocialUser } from "angularx-social-login";
+import {ActivatedRoute, Router} from '@angular/router';
+import { AuthService } from "angularx-social-login";
+
 
 /** @title Responsive sidenav */
 
@@ -15,10 +18,12 @@ export class AppComponent implements OnInit,OnDestroy {
 
   mobileQuery: MediaQueryList;
   user:SocialUser;
+  isLoggedIn:boolean;
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private data: DataService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private authService: AuthService,private data: DataService,
+    private route:ActivatedRoute,private router:Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -28,8 +33,25 @@ export class AppComponent implements OnInit,OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
+  signOut(): void {
+    this.data.changeMessage(undefined);
+    window.location.href="/login";
+    this.authService.signOut();
+
+    console.log('/login 0');
+  }
 
   ngOnInit() {
-    this.data.currentMessage.subscribe(user => this.user = user)
+    console.log('First Invoke');
+    if(this.user===undefined || this.user===null){
+      console.log('/login')
+        this.router.navigate(['/login']);
+    }else{
+      console.log('/home 1');
+      this.router.navigate(['/home']);
+    }
+    this.data.currentMessage.subscribe(user => {
+      this.user = user;
+    });
   }
 }

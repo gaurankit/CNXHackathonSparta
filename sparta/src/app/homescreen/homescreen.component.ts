@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Trip } from '../trip';
 import { TRIPS } from '../mock.trips';
 
 

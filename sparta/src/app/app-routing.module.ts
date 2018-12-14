@@ -5,6 +5,7 @@ import { LoginscreenComponent } from './loginscreen/loginscreen.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginscreenComponent },
   { path: 'home', component: HomescreenComponent }
 ];

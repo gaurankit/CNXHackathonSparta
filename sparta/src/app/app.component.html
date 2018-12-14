@@ -5,7 +5,7 @@
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name">Your Trips</h1>
       <div class="width100">
-        <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+        <img *ngIf="user" class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
         <!-- <div class="card-block">
           <h4 class="card-title">{{ user.name }}</h4>
           <p class="card-text">{{ user.email }}</p>
@@ -29,12 +29,10 @@
           <a mat-list-item routerLink=".">Travel Stats</a>
           <a mat-list-item routerLink=".">Profile</a>
           <a mat-list-item routerLink=".">SignIn</a>
-          <a mat-list-item routerLink=".">SignOut</a>
+          <a mat-list-item (click)="signOut()">SignOut</a>
         </mat-nav-list>
       </mat-sidenav>
-  
       <mat-sidenav-content>
-        {{ message }}
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
