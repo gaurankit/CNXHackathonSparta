@@ -1,33 +1,28 @@
-<p>
-  loginscreen works!
-</p>
-<div class="jumbotron bg-transparent text-center">
-  <div *ngIf="!user" class="card text-center">
-    <h6 class="card-header">
-      Social Login Demo
-    </h6>
-    <div class="card-block">
-      <h4 class="card-title">Not signed in</h4>
-      <p class="card-text">Sign in with</p>
-    </div>
-    <div class="card-block">
-      <button class="btn btn-social-icon btn-google mx-1" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
-      <button class="btn btn-social-icon btn-facebook mx-1" (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
-      <button class="btn btn-social-icon btn-linkedin mx-1" (click)="signInWithLinkedIn()"><span class="fa fa-linkedin"></span></button>
-    </div>
+<div class="card-block">
+         <!-- loading layout replaced by app after startupp -->
+         <div class="app-loading">
+            <div class="logo"></div>
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Username" value="">
+                </mat-form-field>
+              <div></div>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Password" value="">
+                </mat-form-field>
+              </form>
+
+              <button style="width:200px;" mat-raised-button color="primary">Login</button>
+              <div></div>
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <!-- <button class="btn btn-social-icon btn-google mx-1 googlebutton" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button> -->
+            <button style="margin-top:40px;" class="loginBtn loginBtn--google" (click)="signInWithGoogle()">
+                <span class="fa fa-google">Login with Google</span>
+            </button>
+
+            <button class="loginBtn loginBtn--facebook">
+                Login with Facebook
+            </button>
+          </div>
+    
   </div>
-  <div *ngIf="user" class="card text-center">
-    <h6 class="card-header">
-      Social Login Demo
-    </h6>
-    <div class="card-block"></div>
-    <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
-    <div class="card-block">
-      <h4 class="card-title">{{ user.name }}</h4>
-      <p class="card-text">{{ user.email }}</p>
-    </div>
-    <div class="card-block">
-      <button class="btn btn-danger" (click)="signOut()">Sign out</button>
-    </div>
-  </div>
-</div>
