@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-transfers',
@@ -11,8 +12,10 @@ export class TransfersComponent implements OnInit {
   lng;
 
   constructor() { 
-   
+    var http: HttpClient    
   }
+
+
 
   ngOnInit() {
     if (navigator.geolocation) {
@@ -24,10 +27,11 @@ export class TransfersComponent implements OnInit {
     }
   }
 
-  getRideEstimate(): void {
   
-    console.log('Calling Uber !!!!!!!!!!!!');
+  getRideEstimate(): void {
     
+    console.log('Calling Uber !!!!!!!!!!!!');
+      
   }
 
 }
