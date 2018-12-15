@@ -3,7 +3,7 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
     <mat-toolbar color="primary" class="example-toolbar" *ngIf="user.id">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">Your Trips</h1>
+      <h1 class="example-app-name">On Trip</h1>
       <div class="width100" >
           <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
         <button mat-icon-button (click)="showNotifications()" class="notificationBadge">
