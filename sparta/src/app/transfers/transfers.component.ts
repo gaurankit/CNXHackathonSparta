@@ -45,7 +45,7 @@ export class TransfersComponent implements OnInit {
 
   getRideEstimate(): void {
  
-    debugger;
+   
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
