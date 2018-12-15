@@ -13,6 +13,7 @@ export class MessagingService {
   currentMessage = new BehaviorSubject(null);
 
   notifications = [];
+  count = 0; 
   
   constructor(
     private angularFireDB: AngularFireDatabase,
@@ -76,8 +77,10 @@ export class MessagingService {
             isPresent = true;
         });
 
-        if(!isPresent)
+        if(!isPresent){
           this.notifications.push({title: payload["notification"].title, body: payload["notification"].body, type: payload["data"]["gcm.notification.type"]});
+          this.count++;
+        }
       })
   }
 }

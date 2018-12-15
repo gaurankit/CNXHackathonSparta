@@ -22,7 +22,9 @@ export class NotificationlistComponent implements OnInit {
 
   openLink(event: MouseEvent): void {
     this.bottomSheetRef.dismiss();
-    event.preventDefault();
+    event.preventDefault(); 
+    if(this.messagingService.count)
+      this.messagingService.count --;   
   }
 
 }

@@ -21,7 +21,7 @@ import { debug } from 'util';
 
 export class AppComponent implements OnInit,OnDestroy {
   title = 'OnTrip';
-  notifications =[];
+  notifications = [];
 
   mobileQuery: MediaQueryList;
   user:SocialUser;
@@ -63,17 +63,18 @@ export class AppComponent implements OnInit,OnDestroy {
       if(user){
         const userId = this.user.provider + '/' + this.user.id;
         this.messagingService.requestPermission(userId);
-        this.messagingService.receiveMessage();
+        this.messagingService.receiveMessage();              
         //this.message = this.messagingService.currentMessage;          
         // this.messagingService.currentMessage.subscribe({
         //     next: (v) => {debugger; this.notifications.push(v)}
-        //   });
-        }
+        //   });      
+      }
     });    
   }
 
   showNotifications(){
-    if(this.messagingService.notifications.length)
-      this.bottomSheet.open(NotificationlistComponent);
+    if(this.messagingService.notifications.length){
+      this.bottomSheet.open(NotificationlistComponent);      
+    }
   }
 }
