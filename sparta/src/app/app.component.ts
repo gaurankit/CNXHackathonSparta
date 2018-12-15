@@ -69,7 +69,7 @@ export class AppComponent implements OnInit,OnDestroy {
         //     next: (v) => {debugger; this.notifications.push(v)}
         //   });      
       }
-    });    
+    }); 
   }
 
   showNotifications(){
