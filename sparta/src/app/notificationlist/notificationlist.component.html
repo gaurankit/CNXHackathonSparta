@@ -1,11 +1,16 @@
-<!-- hvjjg
-<ul>
-  <li *ngFor="let notification of data">
-    {{ notification }}
-  </li>
-</ul> -->
 
 <mat-nav-list>
+  <a *ngFor="let notification of messagingService.notifications" mat-list-item (click)="openLink($event)">
+        
+     <span mat-line>{{ notification.type }}</span>
+     <span mat-line>{{ notification.title }}</span>
+     <span mat-line>{{ notification.body }}</span>
+      
+    
+  </a>
+</mat-nav-list>
+
+<!-- <mat-nav-list>
     <a href="https://keep.google.com/" mat-list-item (click)="openLink($event)">
       <span mat-line>Google Keep</span>
       <span mat-line>Add to a note</span>
@@ -25,4 +30,4 @@
       <span mat-line>Google Hangouts</span>
       <span mat-line>Show to your coworkers</span>
     </a>
-  </mat-nav-list>
+  </mat-nav-list> -->

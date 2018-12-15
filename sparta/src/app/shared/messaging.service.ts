@@ -12,6 +12,8 @@ export class MessagingService {
 
   currentMessage = new BehaviorSubject(null);
 
+  notifications = [];
+  
   constructor(
     private angularFireDB: AngularFireDatabase,
     private angularFireAuth: AngularFireAuth,
@@ -62,9 +64,20 @@ export class MessagingService {
    */
   receiveMessage() {
     this.angularFireMessaging.messages.subscribe(
-      (payload) => {
+      (payload) => {        
         console.log("new message received. ", payload);        
-        this.currentMessage.next(payload);
+        //this.currentMessage.next(payload);
+        var isPresent = false;
+        
+        this.notifications.forEach(element => {          
+          if(element.title == payload["notification"].title 
+            && element.body == payload["notification"].body
+            && element.type == payload["data"]["gcm.notification.type"] )
+            isPresent = true;
+        });
+
+        if(!isPresent)
+          this.notifications.push({title: payload["notification"].title, body: payload["notification"].body, type: payload["data"]["gcm.notification.type"]});
       })
   }
 }

@@ -9,6 +9,7 @@ import { AuthService } from "angularx-social-login";
 import {MatBottomSheet} from '@angular/material';
 import { NotificationlistComponent } from './notificationlist/notificationlist.component';
 import { MessagingService } from "./shared/messaging.service";
+import { debug } from 'util';
 
 /** @title Responsive sidenav */
 @Component({
@@ -63,12 +64,16 @@ export class AppComponent implements OnInit,OnDestroy {
         const userId = this.user.provider + '/' + this.user.id;
         this.messagingService.requestPermission(userId);
         this.messagingService.receiveMessage();
-        this.message = this.messagingService.currentMessage;        
+        //this.message = this.messagingService.currentMessage;          
+        // this.messagingService.currentMessage.subscribe({
+        //     next: (v) => {debugger; this.notifications.push(v)}
+        //   });
         }
     });    
   }
 
   showNotifications(){
-    this.bottomSheet.open(NotificationlistComponent);
+    if(this.messagingService.notifications.length)
+      this.bottomSheet.open(NotificationlistComponent);
   }
 }

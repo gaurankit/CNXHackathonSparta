@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatBottomSheetRef} from '@angular/material';
+import { MessagingService } from "../shared/messaging.service";
 
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
@@ -12,7 +13,7 @@ export interface DialogData {
 })
 export class NotificationlistComponent implements OnInit {
 
-  constructor(private bottomSheetRef: MatBottomSheetRef<NotificationlistComponent>) { 
+  constructor(private bottomSheetRef: MatBottomSheetRef<NotificationlistComponent>, private messagingService: MessagingService) { 
     
   }
 

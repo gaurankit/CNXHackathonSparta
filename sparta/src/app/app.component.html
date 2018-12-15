@@ -7,7 +7,7 @@
       <div class="width100" >
           <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
         <button mat-icon-button (click)="showNotifications()" class="notificationBadge">
-          <mat-icon aria-label="Notifications" matBadge="{{notifications.length}}">notifications</mat-icon>
+          <mat-icon aria-label="Notifications" matBadge="{{messagingService.notifications.length}}">notifications</mat-icon>
         </button>
         
 
@@ -40,5 +40,5 @@
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
-    {{ message | async | json }}    
+    <!-- {{ message | async | json }}     -->
   </div>
