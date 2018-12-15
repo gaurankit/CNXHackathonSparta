@@ -21,7 +21,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/firebase-messaging-sw.js", 
+              "src/firebase-messaging-sw.js",
+              "src/manifest.json",
               "src/manifest.json"
             ],
             "styles": [
@@ -55,7 +56,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true
             }
           }
         },
@@ -92,7 +94,8 @@
             ],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.json"
             ]
           }
         },
@@ -139,5 +142,5 @@
       }
     }
   },
-  "defaultProject": "sparta"
+  "defaultProject": "OnTrip"
 }
