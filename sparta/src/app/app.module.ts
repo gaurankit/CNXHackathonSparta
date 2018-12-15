@@ -20,6 +20,9 @@ import { MessagingService } from './shared/messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { TransfersComponent } from './transfers/transfers.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 let config = new AuthServiceConfig([
@@ -40,7 +43,8 @@ export function provideConfig() {
     LoginscreenComponent,
     HomescreenComponent,
     BottomnavComponent,
-    NotificationlistComponent
+    NotificationlistComponent,
+    TransfersComponent
   ],
   entryComponents: [NotificationlistComponent],
   imports: [
@@ -49,6 +53,7 @@ export function provideConfig() {
     BrowserAnimationsModule,
     MaterialModule,
     SocialLoginModule,
+    HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,

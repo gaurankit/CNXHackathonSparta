@@ -1,15 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar color="primary" class="example-toolbar">
+    <mat-toolbar color="primary" class="example-toolbar" *ngIf="user.id">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name">Your Trips</h1>
       <div class="width100" >
-
-        <button mat-icon-button (click)="showNotifications()">
-          <mat-icon aria-label="Notifications" matBadge="{{notifications}}">notifications</mat-icon>
+          <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+        <button mat-icon-button (click)="showNotifications()" class="notificationBadge">
+          <mat-icon aria-label="Notifications" matBadge="{{this.messagingService.count}}">notifications</mat-icon>
         </button>
-        <img *ngIf="user" class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+        
 
         <!-- <div class="card-block">
           <h4 class="card-title">{{ user.name }}</h4>
@@ -22,18 +22,17 @@
     </mat-toolbar>
   
     <mat-sidenav-container class="example-sidenav-container"
-                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0" >
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
-          <a mat-list-item routerLink=".">My Trips</a>
-          <a mat-list-item routerLink=".">Transfer</a>
+          <a mat-list-item routerLink="." (click)="snav.toggle()">My Trips</a>
+          <a mat-list-item routerLink="/transfers" (click)="snav.toggle()">Transfer</a>
           <a mat-list-item routerLink=".">Parking</a>
           <a mat-list-item routerLink=".">Activities</a>
           <a mat-list-item routerLink=".">Restaurant</a>
           <a mat-list-item routerLink=".">Travel Stats</a>
           <a mat-list-item routerLink=".">Profile</a>
-          <a mat-list-item routerLink=".">SignIn</a>
           <a mat-list-item (click)="signOut()">SignOut</a>
         </mat-nav-list>
       </mat-sidenav>
@@ -41,5 +40,5 @@
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
-    {{ message | async | json }}
+    <!-- {{ message | async | json }}     -->
   </div>
