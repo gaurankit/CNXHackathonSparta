@@ -19,9 +19,11 @@ import { AngularFireModule } from '@angular/fire';
 import { MessagingService } from './shared/messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { TransfersComponent } from './transfers/transfers.component';
 import { HttpClientModule } from '@angular/common/http';
 //import { HttpErrorHandler, HandleError } from './http-error-handler.service';
+
 
 let config = new AuthServiceConfig([
   {
@@ -55,9 +57,8 @@ export function provideConfig() {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
-    //HttpErrorHandler,
-    AngularFireModule.initializeApp(environment.firebase)
-    
+    AngularFireModule.initializeApp(environment.firebase),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [{
     provide: AuthServiceConfig,
