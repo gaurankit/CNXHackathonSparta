@@ -19,6 +19,7 @@ import { AngularFireModule } from '@angular/fire';
 import { MessagingService } from './shared/messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
+import { TransfersComponent } from './transfers/transfers.component';
 
 
 let config = new AuthServiceConfig([
@@ -39,7 +40,8 @@ export function provideConfig() {
     LoginscreenComponent,
     HomescreenComponent,
     BottomnavComponent,
-    NotificationlistComponent
+    NotificationlistComponent,
+    TransfersComponent
   ],
   entryComponents: [NotificationlistComponent],
   imports: [
