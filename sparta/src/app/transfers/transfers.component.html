@@ -1,16 +1,17 @@
 <div class="example-container">
   <mat-card-header>
     <div class="logotransfers"></div>
-
-    <mat-form-field class="example-full-width">
+  </mat-card-header>
+    <mat-form-field >
       <input #origin matInput placeholder="Origin" value="">
     </mat-form-field>
- <br>
-    <mat-form-field class="example-full-width">
+ 
+    <mat-form-field >
       <input #dest matInput placeholder="Destination" value="">
     </mat-form-field>
+    
     <div class="">
       <button mat-button class="fontcolor" (click)="getRideEstimate()">Find a Ride !</button>
     </div>
-  </mat-card-header>
+  
 </div>
