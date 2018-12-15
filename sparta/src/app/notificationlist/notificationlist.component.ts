@@ -13,7 +13,7 @@ export interface DialogData {
 })
 export class NotificationlistComponent implements OnInit {
 
-  constructor(private bottomSheetRef: MatBottomSheetRef<NotificationlistComponent>, private messagingService: MessagingService) { 
+  constructor(private bottomSheetRef: MatBottomSheetRef<NotificationlistComponent>, public messagingService: MessagingService) { 
     
   }
 
