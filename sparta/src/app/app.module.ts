@@ -21,7 +21,7 @@ import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
 import { TransfersComponent } from './transfers/transfers.component';
 import { HttpClientModule } from '@angular/common/http';
-
+//import { HttpErrorHandler, HandleError } from './http-error-handler.service';
 
 let config = new AuthServiceConfig([
   {
@@ -55,7 +55,9 @@ export function provideConfig() {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    //HttpErrorHandler,
+    AngularFireModule.initializeApp(environment.firebase)
+    
   ],
   providers: [{
     provide: AuthServiceConfig,
