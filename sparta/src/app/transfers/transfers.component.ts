@@ -24,7 +24,7 @@ function createHttpOptions(packageName: string, refresh = false) {
 export class TransfersComponent implements OnInit {
   lat;
   lng;
-debugger;
+  DropdownVar;
   ubertrip = UBERTRIPS[2];
   showUber:boolean;
 
