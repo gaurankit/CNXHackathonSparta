@@ -2,16 +2,32 @@
   <mat-card-header>
     <div class="logotransfers"></div>
   </mat-card-header>
-    <mat-form-field >
-      <input #origin matInput placeholder="Origin" value="">
-    </mat-form-field>
- 
-    <mat-form-field >
-      <input #dest matInput placeholder="Destination" value="">
-    </mat-form-field>
-    
-    <div class="">
-      <button mat-button class="fontcolor" (click)="getRideEstimate()">Find a Ride !</button>
-    </div>
-  
+  <mat-form-field>
+    <input #origin matInput placeholder="Origin" value="">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input #dest matInput placeholder="Destination" value="">
+  </mat-form-field>
+
+  <div class="app-loading">
+    <button mat-raised-button color="primary" (click)="DropdownVar=2">Find a Ride !</button> 
+    <!-- (click)="getRideEstimate()" -->
+  </div>
+
+  <div *ngIf="DropdownVar === 2" class="app-loading" style="margin-top:85px;">
+    <img mat-card-image class="carIcon" alt="">
+    <mat-card-header [hidden]="showUber">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Michael Smith is your Dirver</mat-card-title>
+      <mat-card-subtitle>Estimates cost - 5000 points</mat-card-subtitle>
+      <mat-card-subtitle>Toyota Yaaris - 958MTD</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ubertrip.DriverName}} is your Dirver</mat-card-title>
+        <mat-card-subtitle>Estimates cost - {{ubertrip.Points}} points</mat-card-subtitle>
+        <mat-card-subtitle>Toyota Yaaris - {{ubertrip.Licence}} MTD</mat-card-subtitle>
+      </mat-card-header> -->
+  </div>
 </div>
